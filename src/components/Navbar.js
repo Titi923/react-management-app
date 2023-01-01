@@ -9,8 +9,10 @@ export default function Navbar() {
     <nav className='navbar'>
       <ul>
         <li className="logo">
-          <img src={Logo} alt="Logo" />
-          <span className='logo-title'>ManagementApp</span>
+          <Link to="/">
+            <img src={Logo} alt="Logo" />
+            <span className='logo-title'>ManagementApp</span>
+          </Link>
         </li>
 
         <li><Link to="/login">Login</Link></li>

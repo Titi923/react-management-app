@@ -1,7 +1,7 @@
 .sidebar {
   width: 300px;
   min-width: 300px;
-  background: var(--primary-color);
+  background: var(--primary-gradient);
   min-height: 100vh;
   box-sizing: border-box;
   position: relative;
@@ -41,6 +41,7 @@
   color: #555;
   background: var(--bg-color);
   border-radius: 20px 0 0 20px;
+  transition: background-color .25s ease;
 }
 .sidebar .links .active img {
   filter: invert(40%);
