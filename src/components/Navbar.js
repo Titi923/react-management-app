@@ -13,12 +13,22 @@ export default function Navbar() {
   return (
     <nav className='navbar'>
       <ul>
-        <li className="logo">
-          <Link to="/">
-            <img src={Logo} alt="Logo" />
-            <span className='logo-title'>ManagementApp</span>
-          </Link>
-        </li>
+        {!user && (
+          <li className="logo">
+            <Link to="/login">
+              <img src={Logo} alt="Logo" />
+              <span className='logo-title'>ManagementApp</span>
+            </Link>
+          </li>
+        )}
+        {user && (
+          <li className="logo">
+            <Link to="/">
+              <img src={Logo} alt="Logo" />
+              <span className='logo-title'>ManagementApp</span>
+            </Link>
+          </li>
+        )}
         {!user && (
           <li>
             <Link to="/login">Login</Link>
@@ -33,7 +43,7 @@ export default function Navbar() {
           <li>
             {!isPending && <button className='btn' onClick={logout}>Logout</button>}
             {isPending && <button className='btn' disabled>Logging out...</button>}
-        </li>
+          </li>
         )}
       </ul>
     </nav>

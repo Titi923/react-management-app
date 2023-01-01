@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useAuthContext } from './hooks/useAuthContext';
 
 // components
@@ -34,10 +34,10 @@ function App() {
               {!user && <Route path="/projects/:id" element={<Login />}></Route>}
               {user && <Route path="/projects/:id" element={<Project />}></Route>}
 
-              {user && <Route path="/" element={<Dashboard />}></Route>}
+              {user && <Route path="/login" element={<Dashboard />}></Route>}
               {!user && <Route path="/login" element={<Login />}></Route>}
 
-              {user && <Route path="/" element={<Dashboard />}></Route>}
+              {user && <Route path="/signup" element={<Dashboard />}></Route>}
               {!user && <Route path="/signup" element={<Signup />}></Route>}
             </Routes>
           </div>
