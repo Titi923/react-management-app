@@ -1,5 +1,7 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+// components
+import Navbar from './components/Navbar';
 // page components
 import Dashboard from './pages/dashboard/Dashboard';
 import Create from './pages/create/Create';
@@ -14,15 +16,8 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <nav>
-          <Link to="/">Dashboard</Link>
-          <Link to="/create">Create</Link>
-          <Link to="/projects/:id">Project</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Signup</Link>
-        </nav>
-
         <div className="container">
+        <Navbar />
           <Routes>
             <Route exact path="/" element={<Dashboard />}></Route>
             <Route path="/create" element={<Create />}></Route>
