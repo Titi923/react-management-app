@@ -9,18 +9,20 @@
 .auth-form .btn{
   display: block;
 }
-input[type="file"] {
-  display: none;
-}
 .custom-file-upload {
   border: 1px solid #ccc;
   padding: 6px 12px;
   cursor: pointer;
   margin: 0;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .custom-file-upload img {
   width: 30px;
-  margin-right: 10px;
+}
+.selected-photo {
+  color: var(--primary-color);
+  font-weight: bold;
+  padding: 10px;
 }
