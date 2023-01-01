@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // components
 import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
 // page components
 import Dashboard from './pages/dashboard/Dashboard';
 import Create from './pages/create/Create';
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+      <Sidebar />
         <div className="container">
         <Navbar />
           <Routes>

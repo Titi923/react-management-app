@@ -10,7 +10,7 @@ export default function Navbar() {
       <ul>
         <li className="logo">
           <img src={Logo} alt="Logo" />
-          <span>ManagementApp</span>
+          <span className='logo-title'>ManagementApp</span>
         </li>
 
         <li><Link to="/login">Login</Link></li>
