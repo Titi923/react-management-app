@@ -74,3 +74,6 @@ textarea {
   padding: 8px;
   margin: 10px 0;
 }
+.text-center {
+  text-align: center;
+}
