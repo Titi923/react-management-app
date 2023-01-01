@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { useAuthContext } from './hooks/useAuthContext';
 
 // components
 import Navbar from './components/Navbar';
@@ -14,21 +15,40 @@ import Project from './pages/project/Project';
 import './App.css';
 
 function App() {
+  const { user, authIsReady } = useAuthContext()
+  
   return (
     <div className="App">
-      <BrowserRouter>
-      <Sidebar />
-        <div className="container">
-        <Navbar />
-          <Routes>
-            <Route exact path="/" element={<Dashboard />}></Route>
-            <Route path="/create" element={<Create />}></Route>
-            <Route path="/projects/:id" element={<Project />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="/signup" element={<Signup />}></Route>
-          </Routes>
-        </div>
-      </BrowserRouter>
+      {authIsReady && (
+        <BrowserRouter>
+        <Sidebar />
+          <div className="container">
+          <Navbar />
+            <Routes>
+              {!user && <Route path="/" element={<Login />}></Route>}
+              {user && <Route path="/" element={<Dashboard />}></Route>}
+
+              {!user && <Route path="/create" element={<Login />}></Route>}
+              {user && <Route path="/create" element={<Create />}></Route>}
+
+              {!user && <Route path="/projects/:id" element={<Login />}></Route>}
+              {user && <Route path="/projects/:id" element={<Project />}></Route>}
+
+              {user && <Route path="/" element={<Dashboard />}></Route>}
+              {!user && <Route path="/login" element={<Login />}></Route>}
+
+              {user && <Route path="/" element={<Dashboard />}></Route>}
+              {!user && <Route path="/signup" element={<Signup />}></Route>}
+
+              {/* <Route exact path="/" element={<Dashboard />}></Route>
+              <Route path="/create" element={<Create />}></Route>
+              <Route path="/projects/:id" element={<Project />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/signup" element={<Signup />}></Route> */}
+            </Routes>
+          </div>
+        </BrowserRouter>
+      )}
     </div>
   );
 }
