@@ -13,25 +13,15 @@ export default function Navbar() {
   return (
     <nav className='navbar'>
       <ul>
-        {!user && (
-          <li className="logo">
-            <Link to="/login">
-              <img src={Logo} alt="Logo" />
-              <span className='logo-title'>ManagementApp</span>
-            </Link>
-          </li>
-        )}
-        {user && (
-          <li className="logo">
-            <Link to="/">
-              <img src={Logo} alt="Logo" />
-              <span className='logo-title'>ManagementApp</span>
-            </Link>
-          </li>
-        )}
+        <li className="logo">
+          <Link to="/">
+            <img src={Logo} alt="Logo" />
+            <span className='logo-title'>ManagementApp</span>
+          </Link>
+        </li>
         {!user && (
           <li>
-            <Link to="/login">Login</Link>
+            <Link to="/">Login</Link>
           </li>
         )}
         {!user && (
