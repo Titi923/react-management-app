@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/firestore'
 import 'firebase/compat/auth'
+import 'firebase/compat/storage'
 
 const firebaseConfig = {
   apiKey: "AIzaSyAHDBkxAiAZAgLxJhm3249jKpwMu4kfMv0",
@@ -17,8 +18,9 @@ firebase.initializeApp(firebaseConfig)
 // initialize firestore
 const projectFirestore = firebase.firestore()
 const projectAuth = firebase.auth()
+const projectStorage = firebase.storage()
 
 // setup the timestamp
 const timestamp = firebase.firestore.Timestamp
 
-export { projectFirestore, projectAuth, timestamp }
+export { projectFirestore, projectAuth, projectStorage, timestamp }
