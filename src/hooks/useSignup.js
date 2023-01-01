@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { projectAuth, projectStorage, projectFirestore } from '../firebase/config'
 import { useAuthContext } from './useAuthContext'
 
