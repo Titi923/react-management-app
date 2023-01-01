@@ -39,12 +39,6 @@ function App() {
 
               {user && <Route path="/" element={<Dashboard />}></Route>}
               {!user && <Route path="/signup" element={<Signup />}></Route>}
-
-              {/* <Route exact path="/" element={<Dashboard />}></Route>
-              <Route path="/create" element={<Create />}></Route>
-              <Route path="/projects/:id" element={<Project />}></Route>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/signup" element={<Signup />}></Route> */}
             </Routes>
           </div>
         </BrowserRouter>
