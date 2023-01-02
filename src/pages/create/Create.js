@@ -3,6 +3,8 @@ import Select from 'react-select';
 import { useCollection } from '../../hooks/useCollection'
 import { timestamp } from '../../firebase/config';
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { useFirestore } from '../../hooks/useFirestore'
+import { useNavigate  } from 'react-router-dom'
 
 // styles
 import './Create.css';
@@ -15,6 +17,8 @@ const categories = [
 ]
 
 export default function Create() {
+  const navigate = useNavigate ();
+  const { addDocument, response } = useFirestore('projects')
   const { documents } = useCollection('users')
   const [users, setUsers] = useState([])
   const { user } = useAuthContext()
@@ -37,7 +41,7 @@ export default function Create() {
     }
   }, [documents])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setFormError(null);
 
@@ -45,6 +49,7 @@ export default function Create() {
       setFormError('Please select a project category')
       return
     }
+
     if (assignedUsers.length < 1) {
       setFormError('Please assign the project to at least 1 user')
       return
@@ -73,7 +78,11 @@ export default function Create() {
       createdBy: createdBy,
       assignedUsersList: assignedUsersList,
     }
-    console.log(project);
+
+    await addDocument(project)
+    if(!response.error) {
+      navigate('/')
+    }
   }
 
   return (
