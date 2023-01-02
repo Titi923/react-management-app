@@ -52,7 +52,6 @@ export const useFirestore = (collection) => {
       dispatchIfNotCancelled({ type: 'ERROR', payload: err.message })
     }
   }
-
   // delete a document
   const deleteDocument = async (id) => {
     dispatch({ type: 'IS_PENDING' })
@@ -65,7 +64,6 @@ export const useFirestore = (collection) => {
       dispatchIfNotCancelled({ type: 'ERROR', payload: 'could not delete' })
     }
   }
-
   // update a document
   const updateDocument = async (id, updates) => {
     dispatch({ type: "IS_PENDING" })
