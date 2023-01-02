@@ -4,6 +4,7 @@ import { useAuthContext } from './hooks/useAuthContext';
 // components
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import OnlineUsers from './components/OnlineUsers';
 // page components
 import Dashboard from './pages/dashboard/Dashboard';
 import Create from './pages/create/Create';
@@ -41,6 +42,7 @@ function App() {
               {!user && <Route path="/signup" element={<Signup />}></Route>}
             </Routes>
           </div>
+          {user && <OnlineUsers />}
         </BrowserRouter>
       )}
     </div>
